@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kopi Kenangan Senja – VoC Analytics Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            coffee: { 50:'#fdf6ee', 100:'#f9e8d0', 200:'#f2c992', 300:'#e9a44e', 400:'#d98825', 500:'#b5681a', 600:'#8c4e13', 700:'#6b3a0f', 800:'#4e2b0b', 900:'#341c07' },
+            amber:  { 400:'#fbbf24', 500:'#f59e0b' },
+            cream:  '#fef9f0'
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="min-h-screen" style="background:#1e0f05;">
+
+  <!-- ════════════════════════════════ HEADER ════════════════════════════════ -->
+  <header class="header-gradient shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <div class="flex items-center gap-4">
+        <div class="logo-icon text-3xl">☕</div>
+        <div>
+          <h1 class="text-2xl font-extrabold text-amber-300 tracking-tight leading-tight">Kopi Kenangan Senja <span class="text-coffee-200 font-light">&amp; Roastery</span></h1>
+          <p class="text-coffee-300 text-sm font-medium tracking-widest uppercase">Voice of Customer Intelligence</p>
+        </div>
+      </div>
+      <button id="btnLoadDefault" class="btn-primary flex items-center gap-2 self-start md:self-auto">
+        <span>📂</span> Muat Data Default
+      </button>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════ ALERT BANNER ════════════════════════════ -->
+  <div id="alertBanner" class="alert-banner hidden" role="alert" aria-live="polite">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center gap-3">
+      <span class="alert-icon">🚨</span>
+      <p id="alertBannerText" class="flex-1 font-semibold text-sm"></p>
+      <button id="btnDismissAlert" class="alert-dismiss" aria-label="Tutup peringatan">✕</button>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+
+    <!-- ════════════════════════════════ FORM INPUT ════════════════════════════════ -->
+    <section class="card-container">
+      <h2 class="section-title">✍️ Input Ulasan Pelanggan Baru</h2>
+      <form id="reviewForm" class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5" novalidate>
+        <!-- Nama -->
+        <div class="flex flex-col gap-1">
+          <label class="form-label">Nama Pelanggan <span class="text-red-400">*</span></label>
+          <input id="inputNama" type="text" placeholder="Contoh: Budi Santoso" class="form-input" />
+        </div>
+        <!-- Menu -->
+        <div class="flex flex-col gap-1">
+          <label class="form-label">Pilihan Menu <span class="text-red-400">*</span></label>
+          <select id="inputMenu" class="form-input">
+            <option value="">-- Pilih Menu --</option>
+            <option>Es Kopi Susu Senja</option>
+            <option>V60 Gayo</option>
+            <option>Caramel Latte</option>
+            <option>Croissant</option>
+          </select>
+        </div>
+        <!-- Ulasan -->
+        <div class="flex flex-col gap-1 md:col-span-2">
+          <label class="form-label">Teks Ulasan <span class="text-red-400">*</span></label>
+          <textarea id="inputUlasan" rows="3" placeholder="Tuliskan pengalaman Anda di sini…" class="form-input resize-none"></textarea>
+        </div>
+        <!-- Rating -->
+        <div class="flex flex-col gap-1">
+          <label class="form-label">Rating</label>
+          <div class="flex items-center gap-2 mt-1">
+            <div id="starRating" class="flex gap-1"></div>
+            <span id="ratingLabel" class="text-coffee-300 text-sm">Belum dipilih</span>
+          </div>
+          <input type="hidden" id="inputRating" value="0" />
+        </div>
+        <!-- Submit -->
+        <div class="flex items-end">
+          <button type="submit" class="btn-primary w-full">🔍 Analisis Ulasan</button>
+        </div>
+      </form>
+      <p id="formError" class="text-red-400 text-sm mt-3 hidden"></p>
+    </section>
+
+    <!-- ════════════════════════════════ KPI CARDS ════════════════════════════════ -->
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="kpi-card">
+        <div class="kpi-icon">📋</div>
+        <div class="kpi-value" id="kpiTotal">0</div>
+        <div class="kpi-label">Total Ulasan Masuk</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">😊</div>
+        <div class="kpi-value text-emerald-400" id="kpiSatisfaction">0%</div>
+        <div class="kpi-label">Kepuasan Rasa &amp; Produk</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">⚠️</div>
+        <div class="kpi-value text-red-400" id="kpiComplain">0%</div>
+        <div class="kpi-label">Rasio Komplain Negatif</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">📊</div>
+        <div class="kpi-value text-amber-400" id="kpiNSS">0</div>
+        <div class="kpi-label">Net Sentiment Score (NSS)</div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════ CHARTS ════════════════════════════════ -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Donut Chart -->
+      <div class="card-container flex flex-col">
+        <h2 class="section-title">🥧 Distribusi Sentimen</h2>
+        <div class="chart-wrap flex-1 flex items-center justify-center mt-4">
+          <canvas id="donutChart"></canvas>
+        </div>
+      </div>
+      <!-- Bar Chart -->
+      <div class="card-container flex flex-col">
+        <h2 class="section-title">📊 Masalah per Kategori Aspek</h2>
+        <div class="chart-wrap flex-1 flex items-center justify-center mt-4">
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════ FILTER + TABLE ════════════════════════════════ -->
+    <section class="card-container">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-5">
+        <h2 class="section-title mb-0">📋 Tabel Ulasan Pelanggan</h2>
+        <div class="flex flex-wrap gap-3">
+          <button id="btnExportCsv" class="btn-export flex items-center gap-2">
+            <span>📥</span> Unduh Laporan CSV
+          </button>
+          <select id="filterSentimen" class="form-input text-sm py-2 px-3 w-auto">
+            <option value="">Semua Sentimen</option>
+            <option value="Positif">Positif</option>
+            <option value="Netral">Netral</option>
+            <option value="Negatif">Negatif</option>
+          </select>
+          <select id="filterKategori" class="form-input text-sm py-2 px-3 w-auto">
+            <option value="">Semua Kategori</option>
+            <option value="Rasa Kopi">Rasa Kopi</option>
+            <option value="Pelayanan Barista">Pelayanan Barista</option>
+            <option value="Kecepatan Penyajian">Kecepatan Penyajian</option>
+            <option value="Harga & Suasana">Harga &amp; Suasana</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto rounded-xl">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="table-header">
+              <th class="px-4 py-3 text-left">Tanggal</th>
+              <th class="px-4 py-3 text-left">Nama</th>
+              <th class="px-4 py-3 text-left">Menu</th>
+              <th class="px-4 py-3 text-left">Rating</th>
+              <th class="px-4 py-3 text-left min-w-[200px]">Ulasan</th>
+              <th class="px-4 py-3 text-center">Sentimen</th>
+              <th class="px-4 py-3 text-left">Kategori Aspek</th>
+              <th class="px-4 py-3 text-left min-w-[180px]">Rekomendasi Tindak Lanjut</th>
+            </tr>
+          </thead>
+          <tbody id="reviewTableBody">
+            <tr>
+              <td colspan="8" class="text-center py-10 text-coffee-400">Belum ada data. Klik "Muat Data Default" untuk memulai.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="tableCount" class="text-coffee-400 text-xs mt-3 text-right"></p>
+    </section>
+
+  </main>
+
+  <footer class="text-center text-coffee-500 text-xs py-6 mt-4 border-t border-coffee-800">
+    © 2026 Kopi Kenangan Senja &amp; Roastery · Voice of Customer Intelligence Dashboard
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

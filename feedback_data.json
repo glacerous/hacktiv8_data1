@@ -1,0 +1,189 @@
+[
+  {
+    "id": 1,
+    "tanggal": "2026-10-01",
+    "nama": "Anisa Rahmawati",
+    "menu": "Es Kopi Susu Senja",
+    "ulasan": "Kopi susu senjanya enak banget, manis pas dan tidak terlalu pekat. Baristanya juga ramah dan senyum terus. Pasti balik lagi!",
+    "rating": 5,
+    "sentimen": "Positif",
+    "kategori": "Rasa Kopi",
+    "rekomendasi": "Pertahankan kualitas rasa dan konsistensi resep."
+  },
+  {
+    "id": 2,
+    "tanggal": "2026-10-02",
+    "nama": "Budi Santoso",
+    "menu": "V60 Gayo",
+    "ulasan": "V60 Gayo-nya single origin beneran, aroma floral sangat terasa. Sayangnya agak lama nunggu, sekitar 20 menit padahal cafe tidak terlalu ramai.",
+    "rating": 3,
+    "sentimen": "Netral",
+    "kategori": "Kecepatan Penyajian",
+    "rekomendasi": "Evaluasi alur penyajian manual brew agar lebih efisien."
+  },
+  {
+    "id": 3,
+    "tanggal": "2026-10-03",
+    "nama": "Citra Dewi",
+    "menu": "Caramel Latte",
+    "ulasan": "Caramel latte terlalu manis untuk selera saya, dan harganya menurut saya agak mahal dibanding kafe lain di area ini.",
+    "rating": 2,
+    "sentimen": "Negatif",
+    "kategori": "Harga & Suasana",
+    "rekomendasi": "Tambahkan opsi 'less sweet' dan tinjau harga kompetitor."
+  },
+  {
+    "id": 4,
+    "tanggal": "2026-10-04",
+    "nama": "Dimas Pratama",
+    "menu": "Es Kopi Susu Senja",
+    "ulasan": "Pelayanan barista kurang sigap, saya sudah berdiri di kasir 5 menit tapi tidak disapa. Kopinya sih enak.",
+    "rating": 2,
+    "sentimen": "Negatif",
+    "kategori": "Pelayanan Barista",
+    "rekomendasi": "Latih barista dalam keramahan dan awareness terhadap pelanggan."
+  },
+  {
+    "id": 5,
+    "tanggal": "2026-10-05",
+    "nama": "Erlin Susanti",
+    "menu": "Croissant",
+    "ulasan": "Croissant-nya crispy di luar dan lembut di dalam, perpaduan sempurna dengan kopi. Suasana cafe sangat nyaman untuk kerja.",
+    "rating": 5,
+    "sentimen": "Positif",
+    "kategori": "Harga & Suasana",
+    "rekomendasi": "Pertahankan kualitas pastry dan ambiance kafe."
+  },
+  {
+    "id": 6,
+    "tanggal": "2026-10-06",
+    "nama": "Fajar Nugroho",
+    "menu": "V60 Gayo",
+    "ulasan": "Kopi Gayo-nya benar-benar premium, tapi waktu tunggu terlalu lama. Hampir 25 menit menunggu untuk satu gelas kopi.",
+    "rating": 2,
+    "sentimen": "Negatif",
+    "kategori": "Kecepatan Penyajian",
+    "rekomendasi": "Pertimbangkan sistem antrian atau estimasi waktu yang jelas untuk pelanggan."
+  },
+  {
+    "id": 7,
+    "tanggal": "2026-10-07",
+    "nama": "Gilang Ramadhan",
+    "menu": "Caramel Latte",
+    "ulasan": "Caramel latte-nya konsisten dan enak setiap kunjungan. Barista muda di sini sangat antusias dan penuh semangat.",
+    "rating": 5,
+    "sentimen": "Positif",
+    "kategori": "Pelayanan Barista",
+    "rekomendasi": "Program apresiasi barista berprestasi dapat meningkatkan motivasi."
+  },
+  {
+    "id": 8,
+    "tanggal": "2026-10-08",
+    "nama": "Hana Permatasari",
+    "menu": "Es Kopi Susu Senja",
+    "ulasan": "Rasa kopinya biasa saja, tidak ada yang istimewa. Tapi tempatnya bersih dan nyaman, parkir juga mudah.",
+    "rating": 3,
+    "sentimen": "Netral",
+    "kategori": "Harga & Suasana",
+    "rekomendasi": "Eksplorasi resep signature yang lebih unik dan memorable."
+  },
+  {
+    "id": 9,
+    "tanggal": "2026-10-09",
+    "nama": "Ivan Kusuma",
+    "menu": "V60 Gayo",
+    "ulasan": "Barista salah membuat pesanan saya, saya pesan V60 panas tapi diberikan yang dingin. Responnya pun lambat saat saya komplain.",
+    "rating": 1,
+    "sentimen": "Negatif",
+    "kategori": "Pelayanan Barista",
+    "rekomendasi": "Tingkatkan sistem double-check pesanan dan training penanganan komplain."
+  },
+  {
+    "id": 10,
+    "tanggal": "2026-10-10",
+    "nama": "Julia Andriani",
+    "menu": "Croissant",
+    "ulasan": "Croissant dan kopinya jadi paket favorit saya. Harganya memang tidak murah, tapi worth it untuk kualitasnya.",
+    "rating": 4,
+    "sentimen": "Positif",
+    "kategori": "Rasa Kopi",
+    "rekomendasi": "Promosikan bundling menu kopi + pastry dengan harga spesial."
+  },
+  {
+    "id": 11,
+    "tanggal": "2026-10-12",
+    "nama": "Kevin Hartanto",
+    "menu": "Caramel Latte",
+    "ulasan": "Harga Caramel Latte di sini cukup tinggi, sekitar 45 ribu. Rasa lumayan tapi masih bisa ditemukan yang lebih murah dengan kualitas setara.",
+    "rating": 3,
+    "sentimen": "Netral",
+    "kategori": "Harga & Suasana",
+    "rekomendasi": "Review strategi penetapan harga atau tambahkan value yang dirasakan pelanggan."
+  },
+  {
+    "id": 12,
+    "tanggal": "2026-10-14",
+    "nama": "Lestari Wulandari",
+    "menu": "Es Kopi Susu Senja",
+    "ulasan": "Es Kopi Susu Senja adalah yang terbaik yang pernah saya coba! Rasanya creamy, tidak terlalu manis, dan kopinya terasa banget. Barista juga sangat profesional.",
+    "rating": 5,
+    "sentimen": "Positif",
+    "kategori": "Rasa Kopi",
+    "rekomendasi": "Jadikan Es Kopi Susu Senja sebagai produk andalan dalam kampanye marketing."
+  },
+  {
+    "id": 13,
+    "tanggal": "2026-10-17",
+    "nama": "Mahendra Wijaya",
+    "menu": "V60 Gayo",
+    "ulasan": "Antrean panjang di akhir pekan dan sistem pemesanan kurang tertib. Saya menunggu hampir setengah jam. Mohon diperbaiki.",
+    "rating": 2,
+    "sentimen": "Negatif",
+    "kategori": "Kecepatan Penyajian",
+    "rekomendasi": "Implementasikan sistem pre-order atau antrian digital untuk akhir pekan."
+  },
+  {
+    "id": 14,
+    "tanggal": "2026-10-20",
+    "nama": "Nadia Fitri",
+    "menu": "Croissant",
+    "ulasan": "Croissant terasa agak keras dan tidak fresh, seperti sisa kemarin. Tolong pastikan pastry selalu fresh setiap harinya.",
+    "rating": 2,
+    "sentimen": "Negatif",
+    "kategori": "Rasa Kopi",
+    "rekomendasi": "Terapkan standar freshness ketat dan buang pastry yang melewati batas waktu."
+  },
+  {
+    "id": 15,
+    "tanggal": "2026-10-22",
+    "nama": "Oscar Pradana",
+    "menu": "Caramel Latte",
+    "ulasan": "Pelayanan sangat cepat dan efisien! Pesanan saya selesai dalam 5 menit. Kopinya juga enak. Akan jadi langganan tetap saya.",
+    "rating": 5,
+    "sentimen": "Positif",
+    "kategori": "Kecepatan Penyajian",
+    "rekomendasi": "Jadikan standar kecepatan pelayanan ini sebagai benchmark untuk semua shift."
+  },
+  {
+    "id": 16,
+    "tanggal": "2026-10-25",
+    "nama": "Putri Handayani",
+    "menu": "Es Kopi Susu Senja",
+    "ulasan": "Tempatnya estetik banget, cocok buat foto. Kopinya enak dan porsi es-nya pas. Barista juga mau menjelaskan menu dengan detail.",
+    "rating": 4,
+    "sentimen": "Positif",
+    "kategori": "Harga & Suasana",
+    "rekomendasi": "Manfaatkan Instagram sebagai media promosi dengan konten visual suasana kafe."
+  },
+  {
+    "id": 17,
+    "tanggal": "2026-10-28",
+    "nama": "Rizky Aditya",
+    "menu": "V60 Gayo",
+    "ulasan": "Saya komplain soal kopi yang over-extracted, tapi barista merespons dengan baik dan langsung membuatkan ulang tanpa biaya tambahan. Terima kasih!",
+    "rating": 4,
+    "sentimen": "Positif",
+    "kategori": "Pelayanan Barista",
+    "rekomendasi": "Dokumentasikan prosedur penanganan komplain ini sebagai SOP standar."
+  }
+]
